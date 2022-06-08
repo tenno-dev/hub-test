@@ -1,3 +1,4 @@
+<div class="h-screen">
 <h1>Welcome to SvelteKit</h1>
 <p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
 
@@ -17,4 +18,4 @@ I'm feeling <i-line-md-emoji-grin /> today!
 <!-- Sun in light mode, Moon in dark mode, from Carbon -->
 <button class="i-carbon-sun dark:i-carbon-moon" />
 <!-- Twemoji of laugh, turns to tear on hovering -->
-<div class="i-twemoji-grinning-face-with-smiling-eyes hover:i-twemoji-face-with-tears-of-joy" />
+<div class="i-twemoji-grinning-face-with-smiling-eyes hover:i-twemoji-face-with-tears-of-joy" /></div>
