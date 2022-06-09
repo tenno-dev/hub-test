@@ -18,8 +18,8 @@ body {
 }
 
 a {
-  color: #40b3ff;
+  color: #fff;
 }
 a:visited {
-  color: color.scale(#40b3ff, $lightness: -35%);
+  color: color.scale(#fff, $lightness: -35%);
 }

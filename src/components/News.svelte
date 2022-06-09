@@ -79,9 +79,11 @@
 									>
 										<div style="color: #fff; position: absolute; bottom: 16px; left: 16px;">
 											<h2 class="mdc-typography--headline6" style="margin: 0;">
-												A card with square media.
+												<a href={item.link} class=""> {item.message}</a>
 											</h2>
-											<h3 class="mdc-typography--subtitle2" style="margin: 0;">And a subtitle.</h3>
+											<h3 class="mdc-typography--subtitle2" style="margin: 0;">
+												Posted:{format(new Date(item.date), 'dd.MMMM.yyyy HH:mm')}
+											</h3>
 										</div>
 									</Media>
 								</Card>
@@ -93,3 +95,6 @@
 		{/if}
 	</div>
 </div>
+
+<style>
+</style>
