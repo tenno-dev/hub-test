@@ -1,8 +1,11 @@
 <script>
 	// @ts-nocheck
+	import { darkMode } from '../stores/theme.js';
 
 	//import { selectedplatform } from '../stores/pc';
 	import Select from 'svelte-select';
+    import IconButton from '@smui/icon-button';
+
 	//import { _, t } from 'svelte-i18n';
 	//import Item from './parts/PlatformItem.svelte';
 	//import Selection from './parts/PlatformSelect.svelte';
@@ -64,6 +67,13 @@
 								class="hover:bg-gray-700 hover:text-white px-3 rounded-md text-sm font-medium"
 								aria-current="page">Home</a
 							>
+                            <IconButton
+                            on:click={() => darkMode.set(!$darkMode)}
+                            class="material-icons"
+                            aria-label="{$darkMode ? 'Light' : 'Dark'} Mode"
+                        >
+                            {$darkMode ? 'light_mode' : 'dark_mode'}
+                        </IconButton>
 <!-- 
 							<a
 								href="/patchnotes"
