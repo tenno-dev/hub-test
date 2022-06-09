@@ -3,20 +3,24 @@
 
 	import News from '../components/News.svelte';
 	import { worldstate, platform } from '../stores/worldstate.js';
-	setInterval(() => {
-		let world1 = fetch('https://api.tenno.dev/pc').then((res) => res.json());
+	function fetchdata(plat) {
+ 		let world1 = fetch('https://api.tenno.dev/' + plat).then((res) => res.json());
 		world1.then((data) => {
 			$worldstate = data;
 		});
+	}
+	setInterval(() => {
+ 		fetchdata($platform.value);
 	}, 60000);
-	$: console.log($worldstate);
+	fetchdata($platform.value);
+ 	$: fetchdata($platform.value);
 	$: world = $worldstate;
 </script>
 
 <div class="h-screen">
 	<div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
 		<div class="..."><News news={world.news} /></div>
-		<div class="...">02</div>
+		<div class="...">{JSON.stringify(world.invasions[0])}</div>
 
 		<div class="...">
 			--- tagify ---<br />

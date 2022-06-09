@@ -1,6 +1,7 @@
 <script>
 	// @ts-nocheck
 	import { darkMode } from '../stores/theme.js';
+	import { worldstate, platform } from '../stores/worldstate.js';
 
 	//import { selectedplatform } from '../stores/pc';
 	import Select from 'svelte-select';
@@ -12,34 +13,19 @@
 	let opennav = false;
 	//let p = $selectedplatform;
 	//  let selectplatlabel = p;
-
-	function PlatformIcon(plat) {
-		console.log(plat);
-		switch (plat) {
-			case 'pc':
-				return 'fa-brands:windows';
-			case 'ps4':
-				return 'fa-brands:playstation';
-			case 'xb1':
-				return 'fa-brands:xbox';
-			case 'swi':
-				return 'cib:nintendo-switch';
-			default:
-				return plat;
-		}
-	} /*
+	//  let selectplat = p;
 	let platformlist = [
-		{ label: $_('pc'), value: 'pc', icon: 'fa-brands:windows' },
-		{ label: $_('ps4'), value: 'ps4', icon: 'fa-brands:playstation' },
-		{ label: $_('xb1'), value: 'xb1', icon: 'fa-brands:xbox' },
-		{ label: $_('swi'), value: 'swi', icon: 'cib:nintendo-switch' }
+		{ value: 'pc', label: 'PC' },
+		{ value: 'ps4', label: 'ps4' },
+		{ value: 'xb1', label: 'xb1' },
+		{ value: 'swi', label: 'swi' }
 	];
 	function handleSelect(event) {
-		$selectedplatform = event.detail.value;
-		selectplatlabel = event.detail.value;
+		console.log(event.detail.value);
+		$platform = event.detail;
+		console.log($platform);
+		//selectplatlabel = event.detail.value;
 	}
-	const getOptionLabel = (option) => option.label;
-	const getSelectionLabel = (option) => option.label;*/
 	function handleClick() {
 		opennav = !opennav;
 	}
@@ -90,22 +76,17 @@
 								href="/warframes"
 								class=" hover:bg-gray-700 hover:text-white px-3 rounded-md text-sm font-medium"
 								>Warframes</a
-							>
+							>-->
 							<div class="w-full ">
 								<Select
 									class="w-full"
 									items={platformlist}
 									on:select={handleSelect}
-									bind="$selectedplatform"
-									bind:value={selectplatlabel}
-									{getOptionLabel}
+									bind:value={$platform}
 									isClearable={false}
 									listAutoWidth={false}
-									{getSelectionLabel}
-									{Item}
-									{Selection}
 								/>
-							</div>-->
+							</div>
 						</div>
 					</div>
 				</div>
@@ -178,16 +159,24 @@
 				href="/"
 				class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium"
 				aria-current="page">Home</a
-	>
+			>
 
-<IconButton
-                            on:click={() => darkMode.set(!$darkMode)}
-                            class="material-icons"
-                            aria-label="{$darkMode ? 'Light' : 'Dark'} Mode"
-                        >
-                            {$darkMode ? 'light_mode' : 'dark_mode'}
-                        </IconButton>
-	<!-- 	
+			<IconButton
+				on:click={() => darkMode.set(!$darkMode)}
+				class="material-icons"
+				aria-label="{$darkMode ? 'Light' : 'Dark'} Mode"
+			>
+				{$darkMode ? 'light_mode' : 'dark_mode'}
+			</IconButton>
+			<Select
+				class="w-full"
+				items={platformlist}
+				on:select={handleSelect}
+				value={$platform}
+				isClearable={false}
+				listAutoWidth={false}
+			/>
+			<!-- 	
 			<a
 				href="/patchnotes"
 				class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
@@ -203,19 +192,7 @@
 				href="/warframes"
 				class=" hover:bg-gray-700 hover:text-white px-3 rounded-md text-sm font-medium">Warframes</a
 			>
-			<Select
-				class="w-full"
-				items={platformlist}
-				on:select={handleSelect}
-				bind="$selectedplatform"
-				bind:value={selectplatlabel}
-				{getOptionLabel}
-				isClearable={false}
-				listAutoWidth={false}
-				{getSelectionLabel}
-				{Item}
-				{Selection}
-			/>-->
+	-->
 		</div>
 	</div>
 </nav>

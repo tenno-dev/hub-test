@@ -1,5 +1,6 @@
 <script>
 	// @ts-nocheck
+	import Card, { Content, PrimaryAction, Media, MediaContent } from '@smui/card';
 	const imghost = {
 		'n9e5v4d8.ssl.hwcdn.net': 'hwcdn',
 		'content.invisioncic.com': 'invisioncic'
@@ -67,24 +68,23 @@
 				{#each news as item}
 					<SwiperSlide>
 						<div class="slide  min-w-full">
-							<div
-								class="mx-auto min-w-sm shadow-xl bg-contain h-80 cursor-pointer  bg-center bg-no-repeat "
-								style="background-image: url({getimgurl(item.imageLink)})"
-							>
-								<div
-									class="bg-black bg-opacity-60 inset-x-0 bottom-0 absolute  h-1/3 px-10 flex flex-wrap  hover:bg-opacity-75 transform duration-300"
-								>
-									<div class="pb-20">
-										<h1 class="text-white text-xl ">
-											<a href={item.link}> {item.message}</a>
-										</h1>
-										<p class="text-white text-1xl">
-											<a href={item.link}>
-												posted: {format(new Date(item.date), 'dd.MMMM.yyyy HH:mm')}
-											</a>
-										</p>
-									</div>
-								</div>
+							<div class="card-container">
+								<Card style="max-width: 600px;">
+									<Media
+										class="card-media-square h-80"
+										aspectRatio="square"
+										style="background-image: url({getimgurl(
+											item.imageLink
+										)});background-size:     cover;  background-repeat: no-repeat;background-position: center center;"
+									>
+										<div style="color: #fff; position: absolute; bottom: 16px; left: 16px;">
+											<h2 class="mdc-typography--headline6" style="margin: 0;">
+												A card with square media.
+											</h2>
+											<h3 class="mdc-typography--subtitle2" style="margin: 0;">And a subtitle.</h3>
+										</div>
+									</Media>
+								</Card>
 							</div>
 						</div>
 					</SwiperSlide>
