@@ -4,7 +4,7 @@
 
 	//import { selectedplatform } from '../stores/pc';
 	import Select from 'svelte-select';
-    import IconButton from '@smui/icon-button';
+	import IconButton from '@smui/icon-button';
 
 	//import { _, t } from 'svelte-i18n';
 	//import Item from './parts/PlatformItem.svelte';
@@ -27,7 +27,7 @@
 			default:
 				return plat;
 		}
-	}/*
+	} /*
 	let platformlist = [
 		{ label: $_('pc'), value: 'pc', icon: 'fa-brands:windows' },
 		{ label: $_('ps4'), value: 'ps4', icon: 'fa-brands:playstation' },
@@ -67,14 +67,14 @@
 								class="hover:bg-gray-700 hover:text-white px-3 rounded-md text-sm font-medium"
 								aria-current="page">Home</a
 							>
-                            <IconButton
-                            on:click={() => darkMode.set(!$darkMode)}
-                            class="material-icons"
-                            aria-label="{$darkMode ? 'Light' : 'Dark'} Mode"
-                        >
-                            {$darkMode ? 'light_mode' : 'dark_mode'}
-                        </IconButton>
-<!-- 
+							<IconButton
+								on:click={() => darkMode.set(!$darkMode)}
+								class="material-icons"
+								aria-label="{$darkMode ? 'Light' : 'Dark'} Mode"
+							>
+								{$darkMode ? 'light_mode' : 'dark_mode'}
+							</IconButton>
+							<!-- 
 							<a
 								href="/patchnotes"
 								class="hover:bg-gray-700 hover:text-white px-3 rounded-md text-sm font-medium"
@@ -178,7 +178,8 @@
 				href="/"
 				class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium"
 				aria-current="page">Home</a
-	>	<!-- 	
+			>
+			<!-- 	
 			<a
 				href="/patchnotes"
 				class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
