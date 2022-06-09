@@ -178,8 +178,16 @@
 				href="/"
 				class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium"
 				aria-current="page">Home</a
-			>
-			<!-- 	
+	>
+
+<IconButton
+                            on:click={() => darkMode.set(!$darkMode)}
+                            class="material-icons"
+                            aria-label="{$darkMode ? 'Light' : 'Dark'} Mode"
+                        >
+                            {$darkMode ? 'light_mode' : 'dark_mode'}
+                        </IconButton>
+	<!-- 	
 			<a
 				href="/patchnotes"
 				class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
