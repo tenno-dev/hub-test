@@ -1,7 +1,7 @@
 <script>
 	// @ts-nocheck
 	import { darkMode } from '../stores/theme.js';
-	import { worldstate, platform } from '../stores/worldstate.js';
+	import { store } from '../stores/worldstate.js';
 
 	//import { selectedplatform } from '../stores/pc';
 	import Select from 'svelte-select';
@@ -22,8 +22,8 @@
 	];
 	function handleSelect(event) {
 		console.log(event.detail.value);
-		$platform = event.detail;
-		console.log($platform);
+		$store.platform = event.detail;
+		console.log($store.platform);
 		//selectplatlabel = event.detail.value;
 	}
 	function handleClick() {
@@ -82,7 +82,7 @@
 									class="w-full"
 									items={platformlist}
 									on:select={handleSelect}
-									bind:value={$platform}
+									bind:value={$store.platform}
 									isClearable={false}
 									listAutoWidth={false}
 								/>
@@ -172,7 +172,7 @@
 				class="w-full"
 				items={platformlist}
 				on:select={handleSelect}
-				value={$platform}
+				value={$store.platform}
 				isClearable={false}
 				listAutoWidth={false}
 			/>

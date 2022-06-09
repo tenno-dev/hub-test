@@ -2,19 +2,19 @@
 	// @ts-nocheck
 
 	import News from '../components/News.svelte';
-	import { worldstate, platform } from '../stores/worldstate.js';
+	import { store } from '../stores/worldstate.js';
 	function fetchdata(plat) {
  		let world1 = fetch('https://api.tenno.dev/' + plat).then((res) => res.json());
 		world1.then((data) => {
-			$worldstate = data;
+			$store.worldstate = data;
 		});
 	}
 	setInterval(() => {
- 		fetchdata($platform.value);
+ 		fetchdata($store.platform.value);
 	}, 60000);
-	fetchdata($platform.value);
+	fetchdata($store.platform.value);
  	$: fetchdata($platform.value);
-	$: world = $worldstate;
+	$: world = $store.worldstate;
 </script>
 
 <div class="h-screen">
