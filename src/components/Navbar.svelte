@@ -8,12 +8,12 @@
 	import IconButton from '@smui/icon-button';
 
 	//import { _, t } from 'svelte-i18n';
-	//import Item from './parts/PlatformItem.svelte';
-	//import Selection from './parts/PlatformSelect.svelte';
+	import Item from './parts/PlatformItem.svelte';
+	import Selection from './parts/PlatformSelect.svelte';
 	let opennav = false;
-	//let p = $selectedplatform;
-	//  let selectplatlabel = p;
-	//  let selectplat = p;
+	let p = $store.platform
+	let selectplatlabel = p;
+	let selectplat = p;
 	let platformlist = [
 		{ value: 'pc', label: 'PC' },
 		{ value: 'ps4', label: 'ps4' },
@@ -21,11 +21,16 @@
 		{ value: 'swi', label: 'swi' }
 	];
 	function handleSelect(event) {
-		console.log(event.detail.value);
 		$store.platform = event.detail;
+		selectplatlabel = event.detail.value;
 		console.log($store.platform);
-		//selectplatlabel = event.detail.value;
+		let world1 = fetch('https://api.tenno.dev/' + $store.platform['value']).then((res) => res.json());
+		world1.then((data) => {
+			$store.worldstate = data;
+		});
 	}
+	const getOptionLabel = (option) => option.label;
+	const getSelectionLabel = (option) => option.label;
 	function handleClick() {
 		opennav = !opennav;
 	}
@@ -82,9 +87,14 @@
 									class="w-full"
 									items={platformlist}
 									on:select={handleSelect}
+									bind="$selectedplatform"
 									bind:value={$store.platform}
+									{getOptionLabel}
 									isClearable={false}
 									listAutoWidth={false}
+									{getSelectionLabel}
+									{Item}
+									{Selection}
 								/>
 							</div>
 						</div>

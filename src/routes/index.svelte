@@ -13,14 +13,14 @@
  		fetchdata($store.platform);
 	}, 60000);
 	fetchdata($store.platform);
- 	$: fetchdata($store.platform);
+ 	//$: fetchdata($store.platform.value);
 	$: world = $store.worldstate;
 </script>
 
 <div class="h-screen">
 	<div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
 		<div class="..."><News news={world.news} /></div>
-		<div class="...">{JSON.stringify(world.invasions[0])}</div>
+		<div class="...">{JSON.stringify(world.invasions)}</div>
 
 		<div class="...">
 			--- tagify ---<br />
